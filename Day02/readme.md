@@ -117,4 +117,18 @@ There are two scopes :
 - ***Local Scope*** - when a variable can only be accessed within a code block.
 - ***Global Scope*** - when a variable can be accessed from any location inside the program
 
+### Keywords 
+Keywords are some special words in c++ which are reserved for some special tasks in c++ . It is advised to not identifiers that have similar or identical values with the keywords
+
 ### To create a new line : use the *\n* escape sequence.
+
+# Basic I/O in C++
+
+In C++ , the sequence of bytes corresponding to *input* and *output* are commonly known as *streams*.
+
+***Input Stream*** : When the direction of flow of bytes is from the the input device to the main memory, it is called as *Input Stream*. 
+
+***Output Stream*** : When the direction of flow of bytes is from the main memory to output device, it is termed as *Output Stream*.
+
+`<<` : *This is insertion operator*
+`>>` : *This is Extraction operator, extract the input*
