@@ -226,3 +226,56 @@ The marks of the student are as follows -
 
 0, 1, 2, 3, 4, 5
 ```
+
+----
+
+# Arrays & Pointers
+
+- The name of the array, when written alone, itself points to the memory location where the first element of the array is stored.
+
+- meaning, 
+```c++
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int array[] = {54, 35, 12, 03};
+
+    cout << "The memory location of the zeroth element of the array by using the zeroth element itself is " << &array[0] << endl;
+    cout << "The memory location of the zeroth element of the array by just using the array name is " << array << endl;
+    return 0;
+}
+```
+
+```cmd
+The memory location of the zeroth element of the array by using the zeroth element itself is 0x61ff00
+The memory location of the zeroth element of the array by just using the array name is 0x61ff00
+```
+
+## Iterating through an array using pointers
+```cpp
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    // An integer array
+    int array[] = {54, 35, 12, 03};
+
+    // A pointer to that integer array
+    int *ap = array;
+
+    for (int i = 0; i < 4; i++)
+    {
+        cout << "element at position " << i << " is : " << *(ap+i) << endl;
+    }
+}
+```
+
+```cmd
+element at position 0 is : 54
+element at position 1 is : 35
+element at position 2 is : 12
+element at position 3 is : 3
+```
