@@ -70,5 +70,65 @@ do {
 } while (<condition>) ;
 ```
 
+----
 
-inifinite
+# Pointers 
+- Pointers are a kind of special variable, which stores the memory address of a variable.
+
+### Address Of Operator Symbol (&)
+Special symbol which gives the memory address of a variable.
+
+```c++
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int a = 5;
+    cout << "This is a : " << a << endl;
+    cout << "This is the memory location of a : " << &a << endl;
+
+    return 0;
+}
+```
+
+```powershell
+This is a : 5
+This is the memory location of a : 0x61ff0c
+```
+
+### Indirection Operator In C ( * )
+- The indirection operator in C is represented by the asterisk ' * ' symbol. 
+
+- It is also known as the *dereference operator*. 
+
+- The indirection operator serves two basic purposes -
+ - It is used to create a pointer to a variable.
+ - It is used to access the value stored at the address held by a pointer. In other words, it allows you to retrieve the data located in the memory location pointed to by a pointer.
+
+## Lets create a pointer now
+```c++
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int a = 5;
+    int *ap = &a ;
+    cout << "The value of a is : " << a << endl;
+    cout << "Variable a is stored at : '" << &a << "' memory location" << endl;
+    cout << "The value of ap, which is a pointer to store the memory address of variable a, is : " << ap << endl;
+    cout << "The variable ap, which is a pointer to store the memory address of variable a, is located at : '" << &ap << "' in the memory." << endl;
+    cout << "The value stored in variable a thorugh the pointer ap, by pointer dereferencing is : " << *ap << endl;
+    
+    return 0;
+}
+```
+
+```powershell
+The value of a is : 5
+Variable a is stored at : '0x61ff0c' memory location
+The value of ap, which is a pointer to store the memory address of variable a, is : 0x61ff0c
+The variable ap, which is a pointer to store the memory address of variable a, is located at : '0x61ff08' in the memory.
+The value stored in variable a thorugh the pointer ap, by pointer dereferencing is : 5
+```
