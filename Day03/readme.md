@@ -1,4 +1,4 @@
-# This is Day 01 of learning C++
+# This is Day 03 of learning C++
 
 # Control Structures In C++
 - They help us in controling the flow of the program and also they provide logic to our program.
@@ -72,6 +72,7 @@ do {
 
 ----
 
+<<<<<<< HEAD
 # Pointers 
 - Pointers are a kind of special variable, which stores the memory address of a variable.
 
@@ -279,3 +280,6 @@ element at position 1 is : 35
 element at position 2 is : 12
 element at position 3 is : 3
 ```
+=======
+inifinite
+>>>>>>> 2ebb398a3953adb1bbf430208c1b38700c8a62bd
