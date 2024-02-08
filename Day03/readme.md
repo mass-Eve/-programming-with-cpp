@@ -31,3 +31,44 @@ This is what a sequential execution is.
 02. ***if-else statements***
 03. ***if-(else-if)-else ladder***
 04. ***switch(case) statement***
+
+---
+
+## Loop Structures
+- When we want to do a task *n number of times* , wwe make use of loop structures.
+
+- Loops helps us in doing a task until the condition is `True` .
+
+## Types Of Loop Structures
+There are 3 loops in total, in c++
+01. ***while loop***
+```c++
+// Initialisation of loop variable
+int <var> = <value>;
+while (<condition>)
+{
+    // Body
+    // Loop variable Updation
+}
+```
+
+02. ***for loop***
+```c++
+for (<loop-variable-initialisation> ; <condition> ; <updation>)
+{
+    // Body
+}
+```
+
+03. ***do while loop***
+```c++
+// Initialisation of loop variable
+int <var> = <value>;
+do {
+    // Body
+    // Loop variable Updation
+} while (<condition>) ;
+```
+
+
+inifinite
