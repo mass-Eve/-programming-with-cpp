@@ -30,3 +30,4 @@ This is what a sequential execution is.
 01. ***if statements***
 02. ***if-else statements***
 03. ***if-(else-if)-else ladder***
+04. ***switch(case) statement***
