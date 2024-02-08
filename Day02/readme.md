@@ -1,3 +1,5 @@
+# This is Day 02 of learning C++
+
 ## C++ was Created By : *Bjrane Stroustrup*
 ## Year : *1979*
 
