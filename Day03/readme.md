@@ -132,3 +132,8 @@ The value of ap, which is a pointer to store the memory address of variable a, i
 The variable ap, which is a pointer to store the memory address of variable a, is located at : '0x61ff08' in the memory.
 The value stored in variable a thorugh the pointer ap, by pointer dereferencing is : 5
 ```
+
+----
+
+# Arrays
+
