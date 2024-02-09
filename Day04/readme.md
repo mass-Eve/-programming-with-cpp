@@ -86,3 +86,81 @@ Marks of Shashank in CS : 95
 Grade of Shashank in Maths : A
 Grade of Shashank in CS : A
 ```
+
+## Unions
+
+- A union is a user-defined datatype in which we can define members of different types of data types just like structures. 
+
+- But the thing that makes *`unions`* different from structures is that all the members *(variables)* of the union share the same memory location, unlike a structure that allocates memory separately for each member variable. 
+
+- The size of the union is equal to the size of the largest data type.
+
+### Create a Unions
+```c++
+#include<iostream>
+using namespace std;
+
+// a union to store information about a student
+union studentInfo{
+    int rollno ;
+    int kaksha ;
+    char section ;
+    float height ;
+    float weight ;
+} ;
+
+int main()
+{
+    // lets create a union variable
+    union studentInfo Himesh;
+    
+    Himesh.rollno = 45;
+    cout << "The roll number of Himesh is : " << Himesh.rollno << endl;
+
+    Himesh.kaksha = 12;
+    cout << "Himesh studies in : " << Himesh.kaksha << endl;
+
+    return 0;
+}
+```
+
+```cmd
+The roll number of Himesh is : 45
+Himesh studies in : 12
+```
+
+But 
+```cpp
+#include<iostream>
+using namespace std;
+
+// a union to store information about a student
+union studentInfo{
+    int rollno ;
+    int kaksha ;
+    char section ;
+    float height ;
+    float weight ;
+} ;
+
+int main()
+{
+    // lets create a union variable
+    union studentInfo Himesh;
+    
+    Himesh.rollno = 45;
+    Himesh.kaksha = 12;
+
+    cout << "The roll number of Himesh is : " << Himesh.rollno << endl;
+    cout << "Himesh studies in : " << Himesh.kaksha << endl;
+
+    return 0;
+}
+```
+
+```cmd
+The roll number of Himesh is : 12
+Himesh studies in : 12
+```
+
+You can spot the difference, we are getting a value for rollno which we have not setted. 
