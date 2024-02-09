@@ -280,6 +280,3 @@ element at position 1 is : 35
 element at position 2 is : 12
 element at position 3 is : 3
 ```
-=======
-inifinite
->>>>>>> 2ebb398a3953adb1bbf430208c1b38700c8a62bd
