@@ -164,3 +164,71 @@ Himesh studies in : 12
 ```
 
 You can spot the difference, we are getting a value for rollno which we have not setted. 
+
+----
+
+# Functions In C++
+`return 0` means that our program has run without any problems
+
+## Syntax Of Creating A Function
+```cpp
+<data-type> <function-name>()
+{
+    // body
+
+    // return , if applicable
+}
+```
+
+## Creating A Function
+```cpp
+// A Function to add two numbers
+#include<iostream>
+using namespace std;
+
+int add(int a, int b){
+    int sum = a + b;
+    return sum;
+}
+
+int main()
+{
+    int num1 = 5;
+    int num2 = 6;
+    int sum = add(num1, num2);
+    cout << "The sum of " << num1 << " and " << num2 << " is : " << sum << endl; 
+    return 0;
+}
+```
+
+```cmd
+The sum of 5 and 6 is : 11
+```
+
+## Function Prototyping
+```cpp
+#include<iostream>
+using namespace std;
+
+// Function prototyping
+int add(int, int);
+
+int main()
+{
+    int num1 = 5;
+    int num2 = 6;
+    int sum = add(num1, num2);
+    cout << "The sum of " << num1 << " and " << num2 << " is : " << sum << endl; 
+    return 0;
+}
+
+// Function definition
+int add(int a, int b){
+    int sum = a + b;
+    return sum;
+}
+```
+
+```cmd
+The sum of 5 and 6 is : 11
+```
