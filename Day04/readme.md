@@ -232,3 +232,278 @@ int add(int a, int b){
 ```cmd
 The sum of 5 and 6 is : 11
 ```
+
+# Function Calling Mechanisms
+There are two ways in which a function can be called.
+
+## Call By Value
+In this method, a copy of the actual values is passed in the *user-defined function.*
+
+```cpp
+#include<iostream>
+using namespace std;
+
+// A function to swap two numbers
+void swap(int num1, int num2)
+{
+    cout << endl;
+    cout << "State of values inside the function, before swapping ~ num1: " << num1 << " || num2: " << num2 << endl;
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
+    
+    cout << "State of values inside the function, after swapping ~ num1: " << num1 << " || num2: " << num2 << endl;
+    cout << endl;
+}
+
+int main()
+{
+    int a, b;
+    cout << "Enter num1: " ;
+    cin >> a;
+    cout << "Enter num2: " ;
+    cin >> b;
+
+    cout << "Before swapping ~ num1: " << a << " || num2: " << b << endl;
+    swap(a, b);
+    cout << "After swapping ~ num1: " << a << " || num2: " << b << endl;
+
+    return 0;
+}
+```
+
+```cmd
+Enter num1: 5
+Enter num2: 3
+Before swapping ~ num1: 5 || num2: 3
+
+State of values inside the function, before swapping ~ num1: 5 || num2: 3
+State of values inside the function, after swapping ~ num1: 3 || num2: 5
+
+After swapping ~ num1: 5 || num2: 3
+```
+
+----
+
+## Call By Reference
+In this method, the actual memory reference of the variable is passed. Therefore, any changes made inside the function, affects the state of the actual values. 
+
+```cpp
+#include<iostream>
+using namespace std;
+
+// A function to swap two numbers
+void swap(int *num1, int *num2)
+{
+    cout << endl;
+    cout << "State of values inside the function, before swapping ~ num1: " << *num1 << " || num2: " << *num2 << endl;
+    
+    int temp = *num1;
+    *num1 = *num2;
+    *num2 = temp;
+    
+    cout << "State of values inside the function, after swapping ~ num1: " << *num1 << " || num2: " << *num2 << endl;
+    cout << endl;
+}
+
+int main()
+{
+    int a, b;
+    cout << "Enter num1: " ;
+    cin >> a;
+    cout << "Enter num2: " ;
+    cin >> b;
+
+    cout << "Before swapping ~ num1: " << a << " || num2: " << b << endl;
+    swap(&a, &b);
+    cout << "After swapping ~ num1: " << a << " || num2: " << b << endl;
+
+    return 0;
+}
+```
+
+```cmd
+Enter num1: 10
+Enter num2: 20
+Before swapping ~ num1: 10 || num2: 20
+
+State of values inside the function, before swapping ~ num1: 10 || num2: 20
+State of values inside the function, after swapping ~ num1: 20 || num2: 10
+
+After swapping ~ num1: 20 || num2: 10
+```
+
+-----
+
+## Call By Reference Variable
+
+```cpp
+#include<iostream>
+using namespace std;
+
+// A function to swap two numbers
+void swap(int &num1, int &num2)
+{
+    cout << endl;
+    cout << "State of values inside the function, before swapping ~ num1: " << num1 << " || num2: " << num2 << endl;
+
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
+    
+    cout << "State of values inside the function, after swapping ~ num1: " << num1 << " || num2: " << num2 << endl;
+    cout << endl;
+}
+
+int main()
+{
+    int a, b;
+    int &y = a , &z = b;
+    cout << "Enter num1: " ;
+    cin >> a;
+    cout << "Enter num2: " ;
+    cin >> b;
+
+    cout << "Before swapping ~ num1: " << a << " || num2: " << b << endl;
+    swap(y, z);
+    cout << "After swapping ~ num1: " << a << " || num2: " << b << endl;
+
+    return 0;
+}
+```
+
+```cmd
+Enter num1: 5
+Enter num2: 10
+Before swapping ~ num1: 5 || num2: 10
+
+State of values inside the function, before swapping ~ num1: 5 || num2: 10
+State of values inside the function, after swapping ~ num1: 10 || num2: 5
+
+After swapping ~ num1: 10 || num2: 5
+```
+
+-----
+
+## Returning Reference Values
+
+```cpp
+#include<iostream>
+using namespace std;
+
+// A function to swap two numbers
+int & swap(int &num1, int &num2)
+{
+    cout << endl;
+    cout << "State of values inside the function, before swapping ~ num1: " << num1 << " || num2: " << num2 << endl;
+
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
+    
+    cout << "State of values inside the function, after swapping ~ num1: " << num1 << " || num2: " << num2 << endl;
+    cout << endl;
+
+    return num1;
+}
+
+int main()
+{
+    int a, b;
+    int &y = a , &z = b;
+    cout << "Enter num1: " ;
+    cin >> a;
+    cout << "Enter num2: " ;
+    cin >> b;
+
+    cout << "Before swapping ~ num1: " << a << " || num2: " << b << endl;
+    swap(y, z) = 96;
+    cout << "After swapping ~ num1: " << a << " || num2: " << b << endl;
+
+    return 0;
+}
+```
+
+```cmd
+Enter num1: 5
+Enter num2: 6
+Before swapping ~ num1: 5 || num2: 6
+
+State of values inside the function, before swapping ~ num1: 5 || num2: 6
+State of values inside the function, after swapping ~ num1: 6 || num2: 5
+
+After swapping ~ num1: 96 || num2: 5
+```
+
+----
+
+## Default Arguments
+These are those arguments which have their value pre-defined in the function definition. And if the user don't provide any value from their side, then this value is used.
+
+```cpp
+#include<iostream>
+using namespace std;
+
+// A function to calculate discount
+float discountCalculator(float purchaseAmount, float discountRate = 5)
+{
+    return (discountRate * purchaseAmount) / 100.0 ;
+}
+
+int main()
+{
+    float purchaseAmount;
+    cout << "Enter your purchase amount : " ;
+    cin >> purchaseAmount ;
+
+    cout << "Your discount amount is : Rs " << discountCalculator(purchaseAmount) << endl ;
+    cout << "Net Payment : Rs " << purchaseAmount - discountCalculator(purchaseAmount) << endl;
+
+    cout << endl;
+
+    cout << "Since you have put your own discount code, your discount amount is : Rs " << discountCalculator(purchaseAmount, 15) << endl ;
+    cout << "Net Payment : Rs " << purchaseAmount - discountCalculator(purchaseAmount, 15) << endl;
+
+    return 0;
+}
+```
+
+```cmd
+Enter your purchase amount : 1105
+Your discount amount is : Rs 55.25
+Net Payment : Rs 1049.75
+
+Since you have put your own discount code, your discount amount is : Rs 165.75
+Net Payment : Rs 939.25
+```
+
+----
+
+# Constant Variables
+There values can not be changed.
+```cpp
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int a = 5;
+    cout << "a: " << a << endl;
+    a = 6;
+    cout << "Now a is: " << a << endl;
+
+    // This will raise an error
+    const int b = 7;
+    cout << "b: " << a << endl;
+    b = 8;
+    cout << "Now b is: " << a << endl;
+
+    return 0;
+}
+```
+
+```cmd
+08-constant-variables.cpp: In function 'int main()':
+08-constant-variables.cpp:14:9: error: assignment of read-only variable 'b'
+     b = 8;
+```
