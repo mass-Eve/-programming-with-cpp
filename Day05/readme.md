@@ -115,3 +115,143 @@ int main()
 Enter a number : 4
 The factorial of 4 is 24
 ```
+
+----
+
+## An Algorithm to print the fibonacci series upto n-terms, normally
+
+```cpp
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34,
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int terms;
+    cout << "Enter the number of terms to be printed: ";
+    cin >> terms ;
+
+    // lets assume the first term to be 0
+    int a1 = 0;
+
+    // lets assume the second term to be 1
+    int a2 = 1;
+
+    cout << a1 << ", " ; 
+    cout << a2 << ", " ; 
+    
+    for (int i = 0; i < terms - 2; i++)
+    {
+        int temp = a1; 
+        a1 = a2;       
+        a2 = a2 + temp;
+        
+        cout << a2 << ", " ; 
+    }
+
+    return 0;
+}
+```
+
+```cmd
+Enter the number of terms to be printed: 10
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,
+```
+
+----
+
+## An Algorithm to print the fibonacci series upto n-terms, by a function
+
+```cpp
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34,
+
+#include<iostream>
+using namespace std;
+
+// A function to print the fibonacci series upto n-terms
+void printFibonacciSeries(int n)
+{
+    // lets assume the first term to be 0
+    int a1 = 0;
+
+    // lets assume the second term to be 1
+    int a2 = 1;
+
+    cout << a1 << ", " ; 
+    cout << a2 << ", " ; 
+    
+    for (int i = 0; i < n - 2; i++)
+    {
+        int temp = a1; 
+        a1 = a2;       
+        a2 = a2 + temp;
+        
+        cout << a2 << ", " ; 
+    }
+}
+
+int main()
+{
+    int terms;
+    cout << "Enter the number of terms to be printed: ";
+    cin >> terms ;
+
+    printFibonacciSeries(terms);
+
+    return 0;
+}
+```
+
+```cmd
+Enter the number of terms to be printed: 10
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,
+```
+
+## An Algorithm to print the fibonacci series upto n-terms, by a recursive function
+
+```cpp
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34,
+
+#include<iostream>
+using namespace std;
+
+// A function to print the fibonacci series upto n-terms, recursively
+int fibTerms(int n)
+{
+    if (n <= 1){
+        return n;
+    }
+    else{
+        return fibTerms(n - 1) + fibTerms(n - 2);
+    }
+}
+
+// To print the terms
+void printFibonacciSeries(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << fibTerms(i) << ", ";
+    }
+}
+
+
+int main()
+{
+    int terms;
+    cout << "Enter the number of terms to be printed: ";
+    cin >> terms ;
+
+    cout << "The fibonacci series of " << terms << " is ~ " << endl;
+    printFibonacciSeries(terms);
+
+    return 0;
+}
+```
+
+```cmd
+Enter the number of terms to be printed: 10
+The fibonacci series of 10 is ~
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,
+```
