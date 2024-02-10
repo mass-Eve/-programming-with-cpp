@@ -1,4 +1,5 @@
 # This is Day 01 of learning C++
+## *06 February 2024*
 
 01. we can execute our code in terminal with the following command
 ```powershell
