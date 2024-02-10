@@ -255,3 +255,9 @@ Enter the number of terms to be printed: 10
 The fibonacci series of 10 is ~
 0, 1, 1, 2, 3, 5, 8, 13, 21, 34,
 ```
+
+----
+
+# Function Overloading In C++
+
+*Function Overloading* helps in creating functions with same names that serves different purpose.
