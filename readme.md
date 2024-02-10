@@ -36,3 +36,13 @@ It was hard for me to shortlist, but I tried my best!
 05. Saurabh Sir
     - It was a recommendation from my Senior, that you should visit Saurabh sir's channel becuase his understanding on both the theory and practical part of a language is just out of this world.
     - So I will also be looking to learn from him, especially for the pitfalls to avoid. Because he's so experienced in that.
+
+# *Timeline*
+
+|Day| Date | Topics Complete |
+|:-:| :--: | :--------------:|
+|01| 6 February 2024 | Finalised the Resources, Hello World Program |
+|02| 7 February 2024 | Hello World Explaination, Basic I/O, Scope Of Variables, Header files, Operators sizeof(), Reference Variables, Typecasting, Constant Variables, Manipulators |
+|03| 8 February 2024 | Control Structures, Pointers, Arrays and Pointers |
+|04| 9 February 2024 | Structures, Unions, Enums, Functions, Calling Methods, Default & Constant Arguments |
+|05| 10 February 2024 | Recursion |
