@@ -46,3 +46,5 @@ It was hard for me to shortlist, but I tried my best!
 |03| 8 February 2024 | Control Structures, Pointers, Arrays and Pointers |
 |04| 9 February 2024 | Structures, Unions, Enums, Functions, Calling Methods, Default & Constant Arguments |
 |05| 10 February 2024 | Recursion |
+|06| 11 February 2024 | Introduction To OOPs in C++ , public classes|
+|07| 12 February 2024 | private classes in c++ |
