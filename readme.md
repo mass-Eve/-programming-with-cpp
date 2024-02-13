@@ -48,3 +48,4 @@ It was hard for me to shortlist, but I tried my best!
 |05| 10 February 2024 | Recursion |
 |06| 11 February 2024 | Introduction To OOPs in C++ , public classes|
 |07| 12 February 2024 | private classes in c++ |
+|08| 13 February 2024 | arrays inside classes as members, SuperMarket Shop Implementation Program |
