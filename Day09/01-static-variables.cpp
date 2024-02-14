@@ -96,7 +96,7 @@ int kakshaMenu()
 {
     cout << "To see the students list, enter 1, " << endl; 
     cout << "To add a new student to the kaksha, enter 2, " << endl;
-    cout << "To see the details of a specific student, enter 3" << endl;
+    // cout << "To see the details of a specific student, enter 3" << endl;
     cout << "To exit, enter 0, " << endl;
     cin >> choice;
 
@@ -106,8 +106,8 @@ int kakshaMenu()
 // Main function / Driver program
 int main()
 {
-    // A class 12 B
-    Kaksha TwelveB;
+    Kaksha TwelveA;
+    TwelveA.initialiseStudentCount();
 
     int choice;
 
@@ -118,38 +118,33 @@ int main()
 
     if (choice == 1){
         choice = mainMenu();
-        if (choice == 0){
-            exit(0);
+        if (choice == 1){
+
+        while (true){
+                // cout << "Enter the kaksha and section ~ \nfor example - to visit kaksha '12 B', input 122";
+                // cin >> choice;
+                choice = kakshaMenu();
+                if (choice == 1){
+                    TwelveA.fetchtDetails();
+                }
+                else if (choice == 2){
+                    TwelveA.addDetails();
+                }
+                else{
+                    cout << "Exiting out of the program" << endl;
+                    exit(0);
+                }
+            }
         }
         else{
-            cout << "Enter the kaksha and section ~ \nfor example - to visit kaksha '12 B', input 122";
-            cin >> choice;
-            switch(choice){
-                case 11:
-                    cout << "Welcome to kaksha '1 B'" << endl;
-                    choice = kakshaMenu();
-                    break;
-                case 12:
-                    break;
-                case 13:
-                    break;
-                case 21:
-                    break;
-                case 22:
-                    break;
-                case 23:
-                    break;
-            }
+            cout << "Exiting from the school......" << endl;
+            exit(0);
         }
     }
     else{
         cout << "Exiting from the school......" << endl;
         exit(0);
     }
-
-    // TwelveB.initialiseStudentCount();
-    // TwelveB.addDetails();
-    // TwelveB.fetchtDetails();
 
     return 0;
 }
