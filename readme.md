@@ -49,3 +49,5 @@ It was hard for me to shortlist, but I tried my best!
 |06| 11 February 2024 | Introduction To OOPs in C++ , public classes|
 |07| 12 February 2024 | private classes in c++ |
 |08| 13 February 2024 | arrays inside classes as members, SuperMarket Shop Implementation Program |
+|09| 14 February 2024 | Static Data Members implementation in Kaksha Class program |
+|10| 15 February 2024 | Static Functions, Array of Objects, Passing objects as arguments in functions, polymorphism implementation |
