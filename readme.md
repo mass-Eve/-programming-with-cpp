@@ -54,4 +54,5 @@ It was hard for me to shortlist, but I tried my best!
 |11| 16 February 2024 | Friend Functions & Friend Classes |
 |12| 17 February 2024 | More on friend function |
 |13| 18 February 2024 | Constructors, Default & Parameterized Constructor, Point-Class and cmath library, Constructor Overloading |
-|14| 20 February 2024 | Memory Allocation In C
+|14| 20 February 2024 | Memory Allocation In C |
+|15| 21 February 2024 | Memory Allocation In C continued |
