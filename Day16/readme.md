@@ -224,3 +224,126 @@ The complex number is : 1 + 2i
 The complex number is : 1 + 0i
 The complex number is : 0 + 0i
 ```
+
+-----
+
+# Copy Constructors
+- Copy Constructors are those constructors which create a copy of an object.
+
+```cpp
+#include<iostream>
+using namespace std;
+
+// a class to assign roll numbers to the students of a kaksha
+class assignRollNumber{
+    private:
+        int roll;
+    public:
+        void displayRoll(){
+            cout << "The Roll Number is : " << roll;
+            cout << endl;
+        }
+        assignRollNumber(int rollNumber){
+            roll = rollNumber;
+        }
+        assignRollNumber(){
+            cout << "Since no roll number was passed, so a default roll number has been assigned to the student" << endl;
+            roll = 0;
+        }
+
+        // copy constructor; takes an object and copies its value into another object's values
+        assignRollNumber(assignRollNumber &student){
+            cout << "The roll number has been copied from a student, which is not allowed!" << endl;
+            roll = student.roll;
+        }
+};
+
+int main()
+{
+    assignRollNumber student1;
+    student1.displayRoll();
+
+    assignRollNumber student2(5);
+    student2.displayRoll();
+
+    assignRollNumber student3(4);
+    student3.displayRoll();
+
+    assignRollNumber student4(student2);
+    student4.displayRoll();
+
+    return 0;
+}
+```
+
+```cmd
+Since no roll number was passed, so a default roll number has been assigned to the student
+The Roll Number is : 0
+The Roll Number is : 5
+The Roll Number is : 4
+The roll number has been copied from a student, which is not allowed!
+The Roll Number is : 5
+```
+
+------
+
+### But what if no copy constructor is present in the program and we are still trying to do the job of that constructor function, something like this ~
+
+```cpp
+#include<iostream>
+using namespace std;
+
+// a class to assign roll numbers to the students of a kaksha
+class assignRollNumber{
+    private:
+        int roll;
+    public:
+        void displayRoll(){
+            cout << "The Roll Number is : " << roll;
+            cout << endl;
+        }
+        assignRollNumber(int rollNumber){
+            roll = rollNumber;
+        }
+        assignRollNumber(){
+            cout << "Since no roll number was passed, so a default roll number has been assigned to the student" << endl;
+            roll = 0;
+        }
+
+        // copy constructor
+        // assignRollNumber(assignRollNumber &student){
+        //     cout << "The roll number has been copied from a student, which is not allowed!" << endl;
+        //     roll = student.roll;
+        // }
+};
+
+int main()
+{
+    assignRollNumber student1;
+    student1.displayRoll();
+
+    assignRollNumber student2(5);
+    student2.displayRoll();
+
+    assignRollNumber student3(4);
+    student3.displayRoll();
+
+    assignRollNumber student4(student2);
+    student4.displayRoll();
+
+    return 0;
+}
+```
+
+```cmd
+Since no roll number was passed, so a default roll number has been assigned to the student
+The Roll Number is : 0
+The Roll Number is : 5
+The Roll Number is : 4
+The Roll Number is : 5
+```
+
+*Can you see it still worked perfectly fine, and the behaviour is just like we have with copy constructor! How's that possible ?*
+
+## The Reason :
+***When there is no copy constructor found, the compiler creates its own copy constructor that works just like the requirements and sends it to the main to fulfill the requirements.***
