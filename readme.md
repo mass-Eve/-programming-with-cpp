@@ -56,4 +56,5 @@ It was hard for me to shortlist, but I tried my best!
 |13| 18 February 2024 | Constructors, Default & Parameterized Constructor, Point-Class and cmath library, Constructor Overloading |
 |14| 20 February 2024 | Memory Allocation In C |
 |15| 21 February 2024 | Memory Allocation In C continued |
-|16| 22 February 2024 | Constructor Overloading & Dynamic Initialization of Objects Using Constructors
+|16| 22 February 2024 | Constructor Overloading & Dynamic Initialization of Objects Using Constructors, Copy Constructors |
+|17| 23 February 2024 | 
