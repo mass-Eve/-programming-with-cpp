@@ -41,7 +41,7 @@ To understand inheritance in the simplest form, lets divide it in two forms -:
 - We have created a `Employee` class and in that class we have created two private members.
 - Next we have created a `Programmer` class, which is inheriting values from the `Employee` class. 
 - The idea is that a company has many employees and each employee has a different department. Not every employee is a computer programmer, but every computer programmer (in that company specifically) is an Employee of that company.
-- Utilising that idea, we have some general properties that every employee has and then we have some properties that are specific the Programmer Employees.
+- Utilising that idea, we have some general properties that every employee has and then we have some properties that are specific to the Programmer Employees.
 
 ### Example 1 ~
 ```cpp
@@ -660,7 +660,7 @@ But as you see, the output has disappointed. Again we are doing a mistake.
 ## *From the above example, it is pretty clear that if the inheritance is private, then even the public members of the base class are inherited as private members of the derived class.*
 
 ### Example 2 ~
-- This time, what we are acty doing is that, we are creating a new member function, `addData()` function to add the programmer employee name, and ID. Becuase in this case, the employee name and ID are accessible to us, but the only thing which is preventing us from accessing them is that they are in the private section of our `Programmer` class.
+- This time, what we are actually doing is that, we are creating a new member function, `addData()` function to add the programmer employee name, and ID. Becuase in this case, the employee name and ID are accessible to us, but the only thing which is preventing us from accessing them is that they are in the private section of our `Programmer` class.
 - That is why, we have created an `addData()` function to access them inside the `Programmer` class.
 - Also there is one more problem, since all the things are coming as private members in the derived class, the `displayData()` function, which is displaying the employee name and ID, is also in the private domain.
 - To resolve this, we have made two changes.
