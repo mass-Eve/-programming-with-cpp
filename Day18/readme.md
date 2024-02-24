@@ -526,3 +526,442 @@ Total Projects Completed Till Noe : 5
 ----
 
 ## *Now it is pretty clear that If we want to access the private elements of the base class, we have to create a public function in the base class only, which can manipulate those private members on the behalf of the derived class. Also, we have to change the inheritance visibility to public. Then only we can suppose to do this.*
+
+-----
+
+## Case 2 Outline ~
+Now lets understand things with the perspective of public members of the base class.
+- The whole scenario is same except that this time the members ***(name and id)*** of the base class are in public domain.
+
+### Example 1 ~
+Here we are trying to acess the public members ***(name and id)*** and we are expecting that we can do that because obviously public members are inherited na.
+
+```cpp
+#include<iostream>
+#include<string>
+using namespace std;
+
+// Base class Employee
+class Employee{
+    public:
+
+        // Employee Name
+        string emp_name;
+
+        // Employee ID no.
+        int emp_id;
+
+        // Default construtor
+        Employee(){
+            cout << "New employee with garbage value has been created" << endl;
+        }
+
+        // Parameterised Constructor
+        Employee(string name, int id){
+            cout << "New employee with provided values has been created" << endl;
+            emp_name = name;
+            emp_id = id;
+        }
+
+        // A function to display data
+        void displayData(){
+            cout << "Employee name : " << emp_name << endl;
+            cout << "Employee ID : " << emp_id << endl;
+        }
+};
+
+// A Programmer class which is Derived from the Employee class 
+//          OR
+// A Company has an employee which is also a programmer, but not all the employees are programmer
+class Programmer : Employee{
+    private: 
+        string programmingLanguage;
+        int totalProjects;
+    public:
+        Programmer(){
+            cout << "A programmer employee has been created with default values" << endl;
+            programmingLanguage = "C";
+            totalProjects = 5;
+        }
+        
+        Programmer(string langName, int projectsCount){
+            cout << "A programmer employee has been created with the passed values" << endl;
+            programmingLanguage = langName;
+            totalProjects = projectsCount;
+        }
+
+        void displayData(){
+            cout << "Programming Language : " << programmingLanguage << endl;
+            cout << "Total Projects Completed Till Noe : " << totalProjects << endl;
+        }
+};
+
+int main()
+{
+    cout << "------------------------------------------------" << endl;
+    cout << "Creating one Employee using the Employee class" << endl;
+    Employee emp1("mona", 1245);
+    cout << "------------------------------------------------" << endl;
+
+    cout << endl;
+    cout << "These are my regular employees" << endl;
+    cout << "------------------------------------------------" << endl;
+    cout <<  "Employee 1" << endl;
+    emp1.displayData();
+
+    cout << "------------------------------------------------" << endl;
+    cout << "Creating One Programmer Employee using the Programmer class" << endl;
+    Programmer emp2("C", 5);
+    cout << "------------------------------------------------" << endl;
+
+    cout << "This is a programmer employee " << endl;
+    emp2.displayData();
+    cout << "------------------------------------------------" << endl;
+
+    cout << endl;
+
+    cout << "------------------------------------------------" << endl;
+    cout << "Accesing the name and id of the employee ~ " << endl;
+    emp1.emp_name = "Nishant";
+    emp1.emp_id = 22;
+    emp1.displayData();
+    cout << "------------------------------------------------" << endl;
+
+    cout << endl;
+
+    cout << "------------------------------------------------" << endl;
+    cout << "Trying to assign name and id to a programmer employee ~" << endl;
+    emp2.emp_name = "Shantanu";
+    emp2.emp_id = 50;
+    emp2.displayData();
+
+    return 0;
+}
+```
+
+### Output
+```cmd
+01-inheritance.cpp: In function 'int main()':
+01-inheritance.cpp:95:10: error: 'std::__cxx11::string Employee::emp_name' is inaccessible within this context
+     emp2.emp_name = "Shantanu";
+          ^~~~~~~~
+01-inheritance.cpp:10:16: note: declared here
+         string emp_name;
+                ^~~~~~~~
+01-inheritance.cpp:96:10: error: 'int Employee::emp_id' is inaccessible within this context
+     emp2.emp_id = 50;
+          ^~~~~~
+01-inheritance.cpp:13:13: note: declared here
+         int emp_id;
+```
+
+But as you see, the output has disappointed. Again we are doing a mistake.
+
+## *From the above example, it is pretty clear that if the inheritance is private, then even the public members of the base class are inherited as private members of the derived class.*
+
+### Example 2 ~
+- This time, what we are acty doing is that, we are creating a new member function, `addData()` function to add the programmer employee name, and ID. Becuase in this case, the employee name and ID are accessible to us, but the only thing which is preventing us from accessing them is that they are in the private section of our `Programmer` class.
+- That is why, we have created an `addData()` function to access them inside the `Programmer` class.
+- Also there is one more problem, since all the things are coming as private members in the derived class, the `displayData()` function, which is displaying the employee name and ID, is also in the private domain.
+- To resolve this, we have made two changes.
+  - first of all, just to that ambiguity situation (as before), we have changed the name of the `displayData()` unique to `Programmer` class to `displayDataProgrammer()` function.
+  - second, we are creating a new function `displayDataProgrammer2()` function, which will be used to print them on the terminal.
+- Thats it... Now lets see if that all is actually working or not!
+
+```cpp
+#include<iostream>
+#include<string>
+using namespace std;
+
+// Base class Employee
+class Employee{
+    public:
+        // Employee Name
+        string emp_name;
+
+        // Employee ID no.
+        int emp_id;
+
+        // Default construtor
+        Employee(){
+            cout << "New employee with garbage value has been created" << endl;
+        }
+
+        // Parameterised Constructor
+        Employee(string name, int id){
+            cout << "New employee with provided values has been created" << endl;
+            emp_name = name;
+            emp_id = id;
+        }
+
+        // A function to display data
+        void displayData(){
+            cout << "Employee name : " << emp_name << endl;
+            cout << "Employee ID : " << emp_id << endl;
+        }
+};
+
+// A Programmer class which is Derived from the Employee class 
+//          OR
+// A Company has an employee which is also a programmer, but not all the employees are programmer
+class Programmer : Employee{
+    private: 
+        string programmingLanguage;
+        int totalProjects;
+    public:
+        Programmer(){
+            cout << "A programmer employee has been created with default values" << endl;
+            programmingLanguage = "C";
+            totalProjects = 5;
+        }
+        
+        Programmer(string langName, int projectsCount){
+            cout << "A programmer employee has been created with the passed values" << endl;
+            programmingLanguage = langName;
+            totalProjects = projectsCount;
+        }
+
+        void displayDataProgrammer(){
+            cout << "Programming Language : " << programmingLanguage << endl;
+            cout << "Total Projects Completed Till Noe : " << totalProjects << endl;
+        }
+
+        void displayDataProgrammer2(){
+            cout << "Employee name : " << emp_name << endl;
+            cout << "Employee ID : " << emp_id << endl;
+        }
+
+        void addData(string name, int id){
+            emp_name = name;
+            emp_id = id;
+        }
+};
+
+int main()
+{
+    cout << "------------------------------------------------" << endl;
+    cout << "Creating one Employee using the Employee class" << endl;
+    Employee emp1("mona", 1245);
+    cout << "------------------------------------------------" << endl;
+
+    cout << endl;
+    cout << "These are my regular employees" << endl;
+    cout << "------------------------------------------------" << endl;
+    cout <<  "Employee 1" << endl;
+    emp1.displayData();
+
+    cout << "------------------------------------------------" << endl;
+    cout << "Creating One Programmer Employee using the Programmer class" << endl;
+    Programmer emp2("C", 5);
+    cout << "------------------------------------------------" << endl;
+
+    cout << "This is a programmer employee " << endl;
+    emp2.displayDataProgrammer();
+    cout << "------------------------------------------------" << endl;
+
+    cout << endl;
+
+    cout << "------------------------------------------------" << endl;
+    cout << "Accesing the name and id of the employee ~ " << endl;
+    emp1.emp_name = "Nishant";
+    emp1.emp_id = 22;
+    emp1.displayData();
+    cout << "------------------------------------------------" << endl;
+
+    cout << endl;
+
+    cout << "------------------------------------------------" << endl;
+    cout << "Trying to assign name and id to a programmer employee ~" << endl;
+    emp2.addData("Shantanu", 50);
+    // emp2.emp_name = "Shantanu";
+    // emp2.emp_id = 50;
+    emp2.displayDataProgrammer();
+    emp2.displayDataProgrammer2();
+
+    return 0;
+}
+```
+
+### Output ~
+
+```cmd
+------------------------------------------------
+Creating one Employee using the Employee class
+New employee with provided values has been created
+------------------------------------------------
+
+These are my regular employees
+------------------------------------------------
+Employee 1
+Employee name : mona
+Employee ID : 1245
+------------------------------------------------
+Creating One Programmer Employee using the Programmer class
+New employee with garbage value has been created
+A programmer employee has been created with the passed values
+------------------------------------------------
+This is a programmer employee
+Programming Language : C
+Total Projects Completed Till Noe : 5
+------------------------------------------------
+
+------------------------------------------------
+Accesing the name and id of the employee ~
+Employee name : Nishant
+Employee ID : 22
+------------------------------------------------
+
+------------------------------------------------
+Trying to assign name and id to a programmer employee ~
+Programming Language : C
+Total Projects Completed Till Noe : 5
+Employee name : Shantanu
+Employee ID : 50
+```
+
+So Yes, it is working.
+
+## Example 3 ~
+- What if we just make the inheritance public ?
+- I hope all the problems will be solved.
+
+```cpp
+#include<iostream>
+#include<string>
+using namespace std;
+
+// Base class Employee
+class Employee{
+    public:
+
+        // Employee Name
+        string emp_name;
+
+        // Employee ID no.
+        int emp_id;
+
+        // Default construtor
+        Employee(){
+            cout << "New employee with garbage value has been created" << endl;
+        }
+
+        // Parameterised Constructor
+        Employee(string name, int id){
+            cout << "New employee with provided values has been created" << endl;
+            emp_name = name;
+            emp_id = id;
+        }
+
+        // A function to display data
+        void displayData(){
+            cout << "Employee name : " << emp_name << endl;
+            cout << "Employee ID : " << emp_id << endl;
+        }
+};
+
+// A Programmer class which is Derived from the Employee class 
+//          OR
+// A Company has an employee which is also a programmer, but not all the employees are programmer
+class Programmer : public Employee{
+    private: 
+        string programmingLanguage;
+        int totalProjects;
+    public:
+        Programmer(){
+            cout << "A programmer employee has been created with default values" << endl;
+            programmingLanguage = "C";
+            totalProjects = 5;
+        }
+        
+        Programmer(string langName, int projectsCount){
+            cout << "A programmer employee has been created with the passed values" << endl;
+            programmingLanguage = langName;
+            totalProjects = projectsCount;
+        }
+
+        void displayDataProgrammer(){
+            cout << "Programming Language : " << programmingLanguage << endl;
+            cout << "Total Projects Completed Till Now : " << totalProjects << endl;
+        }
+};
+
+int main()
+{
+    cout << "------------------------------------------------" << endl;
+    cout << "Creating one Employee using the Employee class" << endl;
+    Employee emp1("mona", 1245);
+    cout << "------------------------------------------------" << endl;
+
+    cout << endl;
+    cout << "These are my regular employees" << endl;
+    cout << "------------------------------------------------" << endl;
+    cout <<  "Employee 1" << endl;
+    emp1.displayData();
+
+    cout << "------------------------------------------------" << endl;
+    cout << "Creating One Programmer Employee using the Programmer class" << endl;
+    Programmer emp2("C", 5);
+    cout << "------------------------------------------------" << endl;
+
+    cout << "This is a programmer employee " << endl;
+    emp2.displayData();
+    cout << "------------------------------------------------" << endl;
+
+    cout << endl;
+
+    cout << "------------------------------------------------" << endl;
+    cout << "Accesing the name and id of the employee ~ " << endl;
+    emp1.emp_name = "Nishant";
+    emp1.emp_id = 22;
+    emp1.displayData();
+    cout << "------------------------------------------------" << endl;
+
+    cout << endl;
+
+    cout << "------------------------------------------------" << endl;
+    cout << "Trying to assign name and id to a programmer employee ~" << endl;
+    emp2.emp_name = "Shantanu";
+    emp2.emp_id = 50;
+    emp2.displayData();
+    emp2.displayDataProgrammer();
+
+    return 0;
+}
+```
+
+```cmd
+------------------------------------------------
+Creating one Employee using the Employee class
+New employee with provided values has been created
+------------------------------------------------
+
+These are my regular employees
+------------------------------------------------
+Employee 1
+Employee name : mona
+Employee ID : 1245
+------------------------------------------------
+Creating One Programmer Employee using the Programmer class
+New employee with garbage value has been created
+A programmer employee has been created with the passed values
+------------------------------------------------
+This is a programmer employee
+Employee name :
+Employee ID : 4199136
+------------------------------------------------
+
+------------------------------------------------
+Accesing the name and id of the employee ~
+Employee name : Nishant
+Employee ID : 22
+------------------------------------------------
+
+------------------------------------------------
+Trying to assign name and id to a programmer employee ~
+Employee name : Shantanu
+Employee ID : 50
+Programming Language : C
+Total Projects Completed Till Now : 5
+```
+
+Guess what. Success......
