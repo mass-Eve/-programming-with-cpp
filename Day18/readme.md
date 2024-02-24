@@ -128,7 +128,7 @@ int main()
 ```
 
 ### Output
-```cpp
+```cmd
 Creating two Employees using the Employee class
 New employee with provided values has been created
 New employee with garbage value has been created
@@ -250,7 +250,7 @@ int main()
 ```
 
 ### Output
-```cpp
+```cmd
 02-inheritance.cpp: In member function 'void Programmer::setEmployeeDetails(std::__cxx11::string, int)':
 02-inheritance.cpp:49:13: error: 'std::__cxx11::string Employee::emp_name' is private within this context
              emp_name = name;
@@ -372,7 +372,7 @@ int main()
 ### Output
 Wait, again !
 
-```cpp
+```cmd
 03-inheritance.cpp: In function 'int main()':
 03-inheritance.cpp:88:44: error: 'void Employee::setEmployeeDetails(std::__cxx11::string, int)' is inaccessible within this context
      emp3.setEmployeeDetails("Christine", 45);
