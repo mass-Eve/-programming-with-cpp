@@ -31,13 +31,19 @@ class <Derived-Class-Name> : <visibility-mode> <Base-Class-Name>{
 -----
 
 # Understanding The Concept Of Inheritance With Examples ~
-### Example 1 ~
-- Here in this class, we have created a `Employee` class and in that class we have created two private members. 
+To understand inheritance in the simplest form, lets divide it in two forms -:
+
+**Case 1** : Base Class with private members
+
+**Case 2** : Base Class with public members
+
+## Case 1 Outline ~  
+- We have created a `Employee` class and in that class we have created two private members.
 - Next we have created a `Programmer` class, which is inheriting values from the `Employee` class. 
 - The idea is that a company has many employees and each employee has a different department. Not every employee is a computer programmer, but every computer programmer (in that company specifically) is an Employee of that company.
 - Utilising that idea, we have some general properties that every employee has and then we have some properties that are specific the Programmer Employees.
-- But as you can see, this program is running well. But ideally it shouldn't because we are trying to inherit the private members of the `Employee` Class which is against the rules.
-- On looking carefully, we can see that we are not actually trying to access those employees of the Employee class. 
+
+### Example 1 ~
 ```cpp
 #include<iostream>
 #include<string>
@@ -148,9 +154,13 @@ Total Projects Completed Till Noe : 5
 ------------------------------------------------
 ```
 
+- But as you can see, this program is running well. But ideally, it shouldn't! Because we are trying to inherit the private members of the `Employee` Class which is against the rules.
+- On looking carefully, we can see that we are not actually accessing those private members of the Employee class, we are just accessing the members created inside the `Programmer` class. 
+
 ### Example 2 ~
-- But if I try to access them, then it should be raising some kind of errors ? Lets check .......
+- But if I try to access those private members, then it should raise appropriate errors ? Lets check this out .......
 - In this example, we are adding one more member function inside our `Programmer` class, which is basically used to add the name and id of the programmer employee.
+
 ```cpp
 #include<iostream>
 #include<string>
@@ -240,7 +250,6 @@ int main()
 ```
 
 ### Output
-But as you can see, without even calling that function, the compiler is giving an error
 ```cpp
 02-inheritance.cpp: In member function 'void Programmer::setEmployeeDetails(std::__cxx11::string, int)':
 02-inheritance.cpp:49:13: error: 'std::__cxx11::string Employee::emp_name' is private within this context
@@ -256,10 +265,12 @@ But as you can see, without even calling that function, the compiler is giving a
          int emp_id;
              ^~~~~~
 ```
-Now this completely proves that *"private employees are not inherited at all."*
+
+- But as you can see, without even calling that function, the compiler is giving an error
+- Now this completely proves that *"private employees are not inherited at all."*
 
 ### Example 3 ~
-- What if I create this `setEmployeeDetails` function in the public section of the base class `Employee` instead of this `Programmer` class, will that work ? 
+- What if I create this `setEmployeeDetails()` function in the public section of the base class `Employee` instead of this `Programmer` class, will that work ? 
 - Ideally, it should work because, since the function is now in the public scope of the base class, and all the elements of base class are inherited, isn't it ?
 
 - Lets try this out ......
@@ -373,11 +384,11 @@ Wait, again !
      emp3.setEmployeeDetails("Christine", 45);
 ```
 
-We got another error. Maybe this was because by default all the inheritance is private, if we don't mention it externally. Lets try by changing that as well.
+We got another error. Maybe this was because *by default, all the inheritance is private, if we don't mention it externally.* Lets try again by changing that as well.
 
-## Example 5 ~
+## Example 4 ~
 - This time we are changing the visibility of inheritance from private to public. Lets see if that work......
-- While doing this, I saw an ambiguity in the program which might can result in undesired value. We are having two `displayData()` member functions, one unique to the base class and other unique to derived class. So for the derived clas, I have changed it to `displayDataProgrammer()` to avoid ambiguity.
+- While doing this, I saw an ambiguity in the program which might can result in undesired value. We are having two `displayData()` member functions, one unique to the base class and other unique to derived class. So for the derived class, I have changed it to `displayDataProgrammer()` to avoid ambiguity.
 
 ```cpp
 #include<iostream>
