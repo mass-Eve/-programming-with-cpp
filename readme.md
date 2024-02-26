@@ -59,4 +59,5 @@ It was hard for me to shortlist, but I tried my best!
 |16| 22 February 2024 | Constructor Overloading & Dynamic Initialization of Objects Using Constructors, Copy Constructors |
 |17| 23 February 2024 | Destructors In C++ and Basics of Inheritance |
 |18| 24 February 2024 | Inheritance Practice |
-|19| 25 February 2024 | 
+|19| 25 February 2024 | Single Inheritance |
+|20| 26 February 2024 |
