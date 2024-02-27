@@ -132,3 +132,148 @@ Employee ID : 4620346
 
 # This Is Day21 Of Learning C++
 ## *27 February 2024*
+
+# Private Inheritance For Members Of `protected` Zone
+
+### Example 3 ~
+- Here we are creating a base class *`Employee`* and a class *`ProgrammerEmployee`* which is inheriting from the base class.
+- We have set the inheritance as private, that is why all the public and protected members are inherited as private members of the *`ProgrammerEmployee`* class and the private members are not inherited at all.
+- Clearly, we can not access the members inside the derived class as they are not inherited. Also the functions which are able to access them are private as well.
+- But what we can do is that, we can access those functions, because they are declared in the public section of the base class. So they are inherited, but are in the private section. Thats it.
+- So I created two respective functions and called those functions inside them.
+
+```cpp
+#include<iostream>
+#include<string>
+using namespace std;
+
+// A Employee class to hold the details of employees of a company
+class Employee{
+    protected:
+        string emplName;
+
+    private :
+        int empID;
+
+    public :
+        void addData(string name, int id){
+            emplName = name;
+            empID = id;
+        }
+
+        void viewData(){
+            cout << "------------------------------------\n";
+            cout << "Employee Name : " << emplName << endl;
+            cout << "Employee ID : " << empID << endl;
+            cout << "------------------------------------\n";
+        }
+};
+
+// A class specifically designed to store the details of all the programmer employees working in a company. This class is inheriting from Employee Class 
+class ProgrammerEmployee : Employee{
+    public : 
+        void addDataThruProgrammerClass(string name, int id){
+            addData(name, id);
+        }
+
+        void viewDataThruProgrammerClass(){
+            viewData();
+        }
+};
+
+int main()
+{
+    // An employee {e1} from the Employee Class
+    ProgrammerEmployee e1;
+
+    // accessing the members for the object (employee) e1
+
+    // adding details
+    e1.addDataThruProgrammerClass("Saksham", 4620346);
+
+    // checking the details
+    e1.viewDataThruProgrammerClass();
+    
+    return 0;
+}
+```
+
+### Output ~
+
+```cmd
+------------------------------------
+Employee Name : Saksham
+Employee ID : 4620346
+------------------------------------
+```
+
+### Example 4 ~
+- But wait, *employee name* is declared in the protected zone, so it must accessible, isn't it ?
+- Lets check that out as well.
+
+```cpp
+#include<iostream>
+#include<string>
+using namespace std;
+
+// A Employee class to hold the details of employees of a company
+class Employee{
+    protected:
+        string emplName;
+
+    private :
+        int empID;
+
+    public :
+        void addData(string name, int id){
+            emplName = name;
+            empID = id;
+        }
+
+        void viewData(){
+            cout << "------------------------------------\n";
+            cout << "Employee Name : " << emplName << endl;
+            cout << "Employee ID : " << empID << endl;
+            cout << "------------------------------------\n";
+        }
+};
+
+// A class specifically designed to store the details of all the programmer employees working in a company. This class is inheriting from Employee Class 
+class ProgrammerEmployee : Employee{
+    public : 
+        void addDataThruProgrammerClass(string name){
+            cout << "Entering the name of employee as it is declared in the protected zone of the base class, so it is accessible to this derived class as well." << endl;
+            emplName = name;
+        }
+
+        void viewDataThruProgrammerClass(){
+            cout << "This is the name of the programmer employee : '" << emplName << "'. We are able to access it because it was declared in the protected zone of the base class, and that is why it was inherited in the derived class." << endl;
+        }
+};
+
+int main()
+{
+    // An employee {e1} from the Employee Class
+    ProgrammerEmployee e1;
+
+    // accessing the members for the object (employee) e1
+
+    // adding details
+    e1.addDataThruProgrammerClass("Saksham");
+
+    // checking the details
+    e1.viewDataThruProgrammerClass();
+    
+    return 0;
+}
+```
+
+### Output ~
+
+```cmd
+Entering the name of employee as it is declared in the protected zone of the base class, so it is accessible to this derived class as well.
+
+This is the name of the programmer employee : 'Saksham'. We are able to access it because it was declared in the protected zone of the base class, and that is why it was inherited in the derived class.
+```
+
+--------
