@@ -62,4 +62,4 @@ It was hard for me to shortlist, but I tried my best!
 |19| 25 February 2024 | Single Inheritance |
 |20| 26 February 2024 | Basics Of Protected Access Modifier |
 |21| 27 February 2024 | Inheritance Of Members Created In the *protected* zone in different visibility modes |
-|22| 28 February 2024 | 
+|22| 28 February 2024 | Basics Of Multilevel Inheritance In C++ |
