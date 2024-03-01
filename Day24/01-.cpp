@@ -51,6 +51,40 @@ class SimpleCalculator{
         }
 };
 
+class ScientificCalculator{
+    protected:
+        int n;
+        float angle;
+    public:
+        void takeAngleConversion(){
+            int choice;
+            cout << "If you are entering the angle measure in degrees, enter 1, else enter 2 : " << endl;
+            cin >> choice;
+            if (choice == 1){
+                cout << "Enter the measure of the angle in degree : ";
+                cin >> angle;
+
+                angle = angle * 0.0174533;
+            }
+            else if (choice == 2){
+                cout << "Enter the measure of the angle in radians : ";
+                cin >> angle;
+            }
+            else{
+                cout << "Wrong Choice" << endl;
+                exit(0);
+            }
+        }
+        void funcSine(int angle);
+        void funcCosine(int angle);
+        void funcTangent(int angle);
+        void funcCotangent(int angle);
+        void funcSecant(int angle);
+        void funcCosecant(int angle);
+};
+
+class HybridCalculator : public SimpleCalculator, public ScientificCalculator{};
+
 int main(){
     SimpleCalculator calculationOne;
     
@@ -60,10 +94,10 @@ int main(){
     cout << "Enter the value of number 2 : " ;
     cin >> b;
 
-    calculationOne.addition(a, b);
-    calculationOne.subtraction(a, b);
+    // calculationOne.addition(a, b);
+    // calculationOne.subtraction(a, b);
     calculationOne.multiplication(a, b);
-    calculationOne.division(a, b);
-    calculationOne.remainder(a, b);
-    calculationOne.exponentiation(a, b);
+    // calculationOne.division(a, b);
+    // calculationOne.remainder(a, b);
+    // calculationOne.exponentiation(a, b);
 }
