@@ -39,7 +39,7 @@ It was hard for me to shortlist, but I tried my best!
 
 # *Timeline*
 
-|Day| Date | Topics Complete |
+|Day| Date | Topics Completed |
 |:-:| :--: | :--------------:|
 |01| 6 February 2024 | Finalised the Resources, Hello World Program |
 |02| 7 February 2024 | Hello World Explaination, Basic I/O, Scope Of Variables, Header files, Operators sizeof(), Reference Variables, Typecasting, Constant Variables, Manipulators |
@@ -64,3 +64,4 @@ It was hard for me to shortlist, but I tried my best!
 |21| 27 February 2024 | Inheritance Of Members Created In the *protected* zone in different visibility modes |
 |22| 28 February 2024 | Basics Of Multilevel Inheritance In C++ |
 |23| 29 February 2024 | Basics Of Multiple Inheritance In C++ |
+|24| 01 March 2024 |
