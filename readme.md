@@ -65,3 +65,4 @@ It was hard for me to shortlist, but I tried my best!
 |22| 28 February 2024 | Basics Of Multilevel Inheritance In C++ |
 |23| 29 February 2024 | Basics Of Multiple Inheritance In C++ |
 |24| 01 March 2024 | Practicing Inheritance |
+|25| 02 March 2024 | 
