@@ -35,8 +35,12 @@ This is our `SimpleCalculator` class.
         - Otherwise, convert it into radians from degrees and then put it into the angle variable.
     - Next we have 6 six member functions to calculate the values of sine, cosine, tangent, cotangent, secant and cosecant
     - Next we have 5 functions which are used for the following purposes ~
-        - to find the square of a number ~ *`square()`*
-        - to find the square root of a number ~ *`squareRoot()`*
-        - to find the
-        - to find the
-        - to find the
+        - to find the square of a number ~ *`square(int)`*
+        - to find the square root of a number ~ *`squareRoot(int)`*
+        - to find the cube of a number ~ *`cube(int)`*
+        - to find the cube root of a number ~ *`cubeRoot(int)`*
+        - to find the factorial of a number ~ *`factorial(int)`*
+    - At last, we have two functions, which are used to convert angle measures.
+        - To convert degree measure to radian measure ~ *`deg2rad(int angle_measure)`* 
+        - To convert radian measure to degree measure ~ *`rad2deg(int angle_measure)`* 
+    - Now the use of this `temp` variable is to store the angle measure which was entered by the user, so that in the result time we can show the user that we have converted this angle measure into that.
