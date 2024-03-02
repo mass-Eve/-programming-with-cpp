@@ -64,4 +64,4 @@ It was hard for me to shortlist, but I tried my best!
 |21| 27 February 2024 | Inheritance Of Members Created In the *protected* zone in different visibility modes |
 |22| 28 February 2024 | Basics Of Multilevel Inheritance In C++ |
 |23| 29 February 2024 | Basics Of Multiple Inheritance In C++ |
-|24| 01 March 2024 |
+|24| 01 March 2024 | Practicing Inheritance |
