@@ -66,4 +66,5 @@ It was hard for me to shortlist, but I tried my best!
 |23| 29 February 2024 | Basics Of Multiple Inheritance In C++ |
 |24| 01 March 2024 | Practicing Inheritance with Calculator Implementation |
 |25| 02 March 2024 | Calculator Implementation program completed |
-|26| 03 March 2024 |
+|26| 03 March 2024 | Ambiguity Resolution |
+|27| 04 March 2024 | Brainstorming In Sorting |
