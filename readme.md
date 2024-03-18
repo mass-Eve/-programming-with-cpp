@@ -71,4 +71,4 @@ It was hard for me to shortlist, but I tried my best!
 |28| 05 March 2024 | finding answers to my questions, oops practice |
 |29| 06 March 2024 | Virtual base class in c++ |
 |30| 07 March 2024 | skipped everything for today |
-|31| 08 March 2024 |
+|31| 18 March 2024 | Revision & Inline Functions related Problem |
